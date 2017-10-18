@@ -1,0 +1,32 @@
+int column = 12;
+int row = 22;
+int size = 30;
+int padding = 10;
+float radd = 0.02;
+float rsum = 0;
+float ran;
+
+void setup(){
+  size(380,680);
+  background(255);
+  stroke(0);
+  smooth();
+  noFill();
+  noLoop();
+}
+
+void draw(){
+  
+  for(int y=0; y<660; y = y + size){
+    rsum += y * radd;
+    for(int x=0; x<360; x = x + size){
+      ran = random(-rsum,rsum);
+      pushMatrix();
+      translate(x+padding,y+padding);
+      rotate(radians(ran));
+      rect(0,0,size,size);
+      popMatrix();
+    }
+  } 
+
+}
